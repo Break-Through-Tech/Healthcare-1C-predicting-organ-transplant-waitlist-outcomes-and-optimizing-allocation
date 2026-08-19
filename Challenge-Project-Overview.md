@@ -1,7 +1,7 @@
 # Predicting Organ Transplant Waitlist Outcomes & Optimizing Allocation
 
-**Company / Org:** MediMate Foundation  
-**Challenge Advisor:** Deepti Bahel, baheldeepti@gmail.com  
+**Company / Org:** Break Through Tech AI Studio  
+**Challenge Advisor:** Beth Parnell elizabeth.parnell@breakthroughtech.org   
 **Program:** Break Through Tech AI Studio - Fall 2026
 
 ---
