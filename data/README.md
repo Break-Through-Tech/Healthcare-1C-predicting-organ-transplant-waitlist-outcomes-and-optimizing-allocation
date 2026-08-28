@@ -84,19 +84,20 @@ waitlist = pd.read_csv("data/restricted/kidney_waitlist_analytic.csv.gz")
 - The current `column_manifest.csv` is not an authoritative schema. It marks
   `WLKI` and `WL_ORG` as present even though neither is in the analytic CSV, and it
   does not list the five derived modeling fields. Use the CSV header as the source
-  of truth while the team builds a corrected, project-specific data dictionary.
+  of truth; the corrected project dictionary linked below covers the actual
+  38-column header.
 - Fifty-nine records have `END_DATE` earlier than `INIT_DATE`; 58 of those also
   have `COMPOSITE_DEATH_DATE` earlier than `INIT_DATE`. All 59 are missing
   `days_to_event`. Investigate and document whether you correct or exclude them.
 - There are 790 records with `days_to_event == 0`. Confirm that same-day outcomes
   fit the assumptions of each model before training.
-- Several fields contain coded values. Interpret them using the OPTN documentation
-  rather than inferring their meaning. The current local delivery does **not**
-  contain the STAR data dictionary needed to decode these values. Ask the
-  Challenge Advisor to add the matching OPTN/UNOS dictionary to the restricted
-  Google Drive folder. The official [OPTN data page](https://optn.transplant.hrsa.gov/data/)
-  provides general context and the data-request portal, but it is not a substitute
-  for the dictionary matching this extract.
+- Use the project [Fellows' Data Dictionary](DATA_DICTIONARY.md) for field
+  definitions, observed code lookups, evidence levels, and modeling guidance. A
+  delivery-matched STAR dictionary was not included, so the project dictionary
+  distinguishes official definitions and project-verified mappings from
+  corroborated or unresolved legacy subcodes. The missing official file is not a
+  blocker for the proposed models; do not invent finer labels for entries marked
+  unresolved.
 - Profile missingness before imputation. For example, both cPRA fields have more
   than 142,000 missing values in the current snapshot.
 - Exclude identifiers and post-prediction fields from model features. Depending on

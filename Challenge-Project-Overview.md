@@ -52,11 +52,11 @@ fairness (subgroup performance within 0.05 AUC) and deliverable quality.
 Use these milestones to guide your work. Your team will create a **GitHub Projects
 board** to track tasks within each milestone.
 
-| Month      | Milestone          | Key Activities                                                  |
-|------------|--------------------|----------------------------------------------------------------|
-| **September**  | Data Understanding | Explore dataset, handle missing values, document findings       |
-| **October**    | Model Development  | Train baseline model, experiment with approaches, iterate      |
-| **November**   | Evaluation & Presentation | Finalize model, prepare presentation, document results        |
+| Month | Milestone | Key Activities |
+| -- | --- | --- |
+| **September** | Data Understanding | Explore dataset, handle missing values, document findings |
+| **October** | Model Development | Train baseline model, experiment with approaches, iterate |
+| **November** | Evaluation & Presentation | Finalize model, prepare presentation, document results |
 
 > **Note for the team:** Please create a GitHub Projects board in this repository
 > to break these milestones into weekly tasks. Go to the **Projects** tab →
@@ -98,26 +98,13 @@ harmonization plan.
 
 - The analytic extract includes demographics, blood type, cPRA, dialysis status,
   BMI, functional status, diagnosis, OPTN region, listing center, transplant and
-  death dates, and wait-time fields. Several categorical fields use OPTN codes;
-  do not interpret the numeric values until the team obtains the corresponding
-  OPTN/UNOS STAR data dictionary from the Challenge Advisor.
+  death dates, and wait-time fields.
 - The 38 columns comprise 33 source fields and five project-ready fields:
   `outcome`, `event_adverse`, `event_transplant`, `censored`, and
   `days_to_event`.
 - `event_adverse` marks death or removal as too sick. `event_transplant` marks the
   `transplanted` outcome, while `censored` marks candidates who were still waiting
   at the end of follow-up.
-- The current outcome distribution is:
-
-  | Outcome | Records | Share |
-  | -- | --: | --: |
-  | Transplanted | 234,429 | 47.4% |
-  | Still waiting | 103,300 | 20.9% |
-  | Removed administratively | 45,332 | 9.2% |
-  | Transplanted elsewhere | 37,243 | 7.5% |
-  | Removed as too sick | 35,219 | 7.1% |
-  | Died | 34,524 | 7.0% |
-  | Unknown | 4,815 | 1.0% |
 - Work from the restricted OPTN extract by default. Use the Brazilian dataset
   only when access to the primary data is blocked, and state clearly in every
   analysis which dataset was used.
@@ -167,14 +154,16 @@ harmonization plan.
 
 - The restricted delivery includes `column_manifest.csv`; however, its contents do
   not fully match the current analytic CSV header. Review the discrepancy noted in
-  [`data/README.md`](data/README.md) before building the team data dictionary.
-- The current local delivery does not include the STAR data dictionary needed to
-  decode categorical values. Ask the Challenge Advisor to add the matching
-  OPTN/UNOS dictionary to the restricted Drive folder before interpreting them.
+  [`data/README.md`](data/README.md) when loading or validating the data.
+- Use the project [`Fellows' Data Dictionary`](data/data_dictionary.md) for all 38
+  fields, observed categorical codes, leakage guidance, and confidence levels.
+  The restricted delivery does not include a version-matched STAR dictionary, but
+  that is not a blocker for this project: the dictionary identifies which values
+  are official, project-verified, corroborated, or still unresolved. Fellows must
+  preserve raw codes rather than inventing finer labels for unresolved legacy
+  subcodes.
 - Official OPTN data information and request portal:
   https://optn.transplant.hrsa.gov/data/
-- Building your own expanded, project-specific data dictionary is the first
-  September deliverable.
 
 ---
 
@@ -191,8 +180,9 @@ harmonization plan.
 1. **EDA and data dictionary** — load the restricted OPTN file, validate dates and
    derived labels, then profile every field: distributions, missingness, and
    outcome base rates. If it is unavailable, load the Brazilian fallback with the
-   encoding and field mapping in `data/README.md`. Produce a shared data dictionary
-   for whichever dataset the team uses.
+   encoding and field mapping in `data/README.md`. Maintain the shared
+   [`Fellows' Data Dictionary`](data/DATA_DICTIONARY.md) as the extract and the
+   team's decisions evolve.
 2. **Baseline classification** — use `event_adverse` as the initial target. Start
    with logistic regression as an interpretable baseline, then move to tree
    ensembles (Random Forest, XGBoost). For the Brazilian fallback, first create the
@@ -307,8 +297,3 @@ number.
    `lifelines`, and `shap` is enough to start
 
 I'm excited to work with you!
-
----
-
-
----
