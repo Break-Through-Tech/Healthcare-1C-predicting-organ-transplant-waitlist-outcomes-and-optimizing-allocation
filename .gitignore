@@ -1,1 +1,4 @@
 data/restricted
+
+# Local Python environment
+.venv/
