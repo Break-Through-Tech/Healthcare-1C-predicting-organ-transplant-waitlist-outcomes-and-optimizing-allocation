@@ -5,6 +5,12 @@
     "regularization": "L2",
     "max_iter": 1000
   },
+  "source_directory": "processed datasets",
+  "source_sha256": {
+    "X_processed.csv": "6c6cb02029a84615d0b9da025177d92a2c002719b875cb69aca1ad7c21f2c76a",
+    "y_processed.csv": "ac7d1ef2eb8f73b739a693f31e6256881a0280248aa42f89556c6969ec6aa84a",
+    "dataset_metadata.json": "0c12b94ece345a49376704e988ff6ff4fbfc03b6f6864eeee6edaf695eee7c0c"
+  },
   "target": "adverse_365",
   "positive_class": 1,
   "feature_columns": [
@@ -61,7 +67,9 @@
     "FUNC_STATUS_PERCENT_MAPPED"
   ],
   "excluded_columns": [],
-  "input_contract": "Already processed numeric features in feature_columns order; raw records are not supported.",
+  "input_contract": "Revised processed numeric features in feature_columns order; pass directly to the pipeline without separate scaling. Raw records are not supported.",
+  "scaling": "StandardScaler fitted within each CV training fold; winner refitted on training split only.",
+  "upstream_preprocessing_provenance": "Not fully documented by source metadata; patient identifiers unavailable for grouped validation.",
   "selection_metric": "average_precision",
   "best_parameters": {
     "logistic__C": 0.00031257158496882353,
@@ -77,8 +85,21 @@
     "predicted_adverse_count_at_0_5": 0,
     "log_loss": 0.15964181923898563
   },
+  "test_confusion_matrix": [
+    [
+      84461,
+      0
+    ],
+    [
+      3517,
+      0
+    ]
+  ],
+  "decision_threshold": 0.5,
   "candidate_count": 200,
   "cv_folds": 5,
+  "test_size": 0.2,
+  "stratified_split": true,
   "training_rows": 351909,
   "test_rows": 87978,
   "random_state": 42,
