@@ -1,0 +1,111 @@
+{
+  "baseline": "A",
+  "fixed_model_parameters": {
+    "solver": "newton-cholesky",
+    "regularization": "L2",
+    "max_iter": 1000
+  },
+  "source_directory": "processed datasets",
+  "source_sha256": {
+    "X_processed.csv": "6c6cb02029a84615d0b9da025177d92a2c002719b875cb69aca1ad7c21f2c76a",
+    "y_processed.csv": "ac7d1ef2eb8f73b739a693f31e6256881a0280248aa42f89556c6969ec6aa84a",
+    "dataset_metadata.json": "0c12b94ece345a49376704e988ff6ff4fbfc03b6f6864eeee6edaf695eee7c0c"
+  },
+  "target": "adverse_365",
+  "positive_class": 1,
+  "feature_columns": [
+    "INIT_AGE",
+    "BMI_TCR_CLEAN",
+    "dialysis_at_listing",
+    "dialysis_years_at_listing",
+    "BMI_TCR_MISSING",
+    "INIT_CPRA_MISSING",
+    "INIT_CPRA_CLEAN_MAPPED",
+    "ABO_A",
+    "ABO_A1",
+    "ABO_A1B",
+    "ABO_A2",
+    "ABO_A2B",
+    "ABO_AB",
+    "ABO_B",
+    "ABO_O",
+    "INIT_STAT_4010",
+    "INIT_STAT_4020",
+    "INIT_STAT_4050",
+    "INIT_STAT_4060",
+    "INIT_STAT_4099",
+    "A2A2B_STATUS_eligible",
+    "A2A2B_STATUS_not_applicable",
+    "A2A2B_STATUS_not_eligible",
+    "A2A2B_STATUS_unknown",
+    "FUNC_STATUS_SCALE_adult_karnofsky",
+    "FUNC_STATUS_SCALE_missing",
+    "FUNC_STATUS_SCALE_not_applicable",
+    "FUNC_STATUS_SCALE_pediatric_lansky",
+    "FUNC_STATUS_SCALE_unknown",
+    "FUNC_STATUS_PERCENT_MAPPED"
+  ],
+  "excluded_columns": [
+    "ETHCAT_1",
+    "ETHCAT_2",
+    "ETHCAT_4",
+    "ETHCAT_5",
+    "ETHCAT_6",
+    "ETHCAT_7",
+    "ETHCAT_9",
+    "ETHCAT_998",
+    "GENDER_F",
+    "GENDER_M",
+    "REGION_1",
+    "REGION_10",
+    "REGION_11",
+    "REGION_2",
+    "REGION_3",
+    "REGION_4",
+    "REGION_5",
+    "REGION_6",
+    "REGION_7",
+    "REGION_8",
+    "REGION_9"
+  ],
+  "input_contract": "Revised processed numeric features in feature_columns order; pass directly to the pipeline without separate scaling. Raw records are not supported.",
+  "scaling": "StandardScaler fitted within each CV training fold; winner refitted on training split only.",
+  "upstream_preprocessing_provenance": "Not fully documented by source metadata; patient identifiers unavailable for grouped validation.",
+  "selection_metric": "average_precision",
+  "best_parameters": {
+    "logistic__C": 0.0003678379771828634,
+    "logistic__class_weight": null
+  },
+  "best_cv_average_precision": 0.08050033612053384,
+  "test_metrics": {
+    "average_precision": 0.08092974013391824,
+    "roc_auc": 0.6778692136922695,
+    "accuracy": 0.9600240969333242,
+    "balanced_accuracy": 0.5,
+    "adverse_recall_at_0_5": 0.0,
+    "predicted_adverse_count_at_0_5": 0,
+    "log_loss": 0.16020745429737773
+  },
+  "test_confusion_matrix": [
+    [
+      84461,
+      0
+    ],
+    [
+      3517,
+      0
+    ]
+  ],
+  "decision_threshold": 0.5,
+  "candidate_count": 200,
+  "cv_folds": 5,
+  "test_size": 0.2,
+  "stratified_split": true,
+  "training_rows": 351909,
+  "test_rows": 87978,
+  "random_state": 42,
+  "python_version": "3.14.3",
+  "sklearn_version": "1.9.1",
+  "numpy_version": "2.5.4",
+  "pandas_version": "3.0.6"
+}
