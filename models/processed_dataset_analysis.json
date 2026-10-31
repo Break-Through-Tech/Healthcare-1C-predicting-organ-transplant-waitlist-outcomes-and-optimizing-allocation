@@ -1,0 +1,72 @@
+{
+  "source_directory": "processed datasets",
+  "source_sha256": {
+    "X_processed.csv": "6c6cb02029a84615d0b9da025177d92a2c002719b875cb69aca1ad7c21f2c76a",
+    "y_processed.csv": "ac7d1ef2eb8f73b739a693f31e6256881a0280248aa42f89556c6969ec6aa84a",
+    "dataset_metadata.json": "0c12b94ece345a49376704e988ff6ff4fbfc03b6f6864eeee6edaf695eee7c0c"
+  },
+  "rows": 439887,
+  "features": 51,
+  "target": "adverse_365",
+  "class_counts": {
+    "0": 422300,
+    "1": 17587
+  },
+  "positive_prevalence": 0.03998072232186903,
+  "missing_feature_values": 0,
+  "infinite_feature_values": 0,
+  "constant_features": [],
+  "duplicate_feature_rows": 832,
+  "nonbinary_feature_statistics": {
+    "INIT_AGE": {
+      "count": 439887.0,
+      "mean": 3.5983577210808018,
+      "std": 0.37378840951978864,
+      "min": 0.0,
+      "25%": 3.332204510175204,
+      "50%": 3.610917912644224,
+      "75%": 3.871201010907891,
+      "max": 4.356708826689592
+    },
+    "BMI_TCR_CLEAN": {
+      "count": 439887.0,
+      "mean": 28.79806784469648,
+      "std": 5.715550814327425,
+      "min": 12.409999999999991,
+      "25%": 24.65,
+      "50%": 28.51,
+      "75%": 32.81,
+      "max": 45.05000000000001
+    },
+    "dialysis_years_at_listing": {
+      "count": 439887.0,
+      "mean": 0.6456741329153859,
+      "std": 0.6409993530236412,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 0.52792701773866,
+      "75%": 1.140173229812572,
+      "max": 1.843446252239452
+    },
+    "INIT_CPRA_CLEAN_MAPPED": {
+      "count": 439887.0,
+      "mean": 0.28637809255558816,
+      "std": 0.7468530860993208,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 0.0,
+      "75%": 0.0,
+      "max": 3.0
+    },
+    "FUNC_STATUS_PERCENT_MAPPED": {
+      "count": 439887.0,
+      "mean": 3.7440092569228005,
+      "std": 1.3881235826577916,
+      "min": 0.0,
+      "25%": 3.0,
+      "50%": 4.0,
+      "75%": 5.0,
+      "max": 6.0
+    }
+  }
+}
