@@ -2,7 +2,7 @@
 
 ## Dataset and preprocessing
 
-Both notebooks load these files from `processed datasets/`:
+Both notebooks load these files from `processed_output/`:
 
 - `X_processed.csv`: input features.
 - `y_processed.csv`: outcome labels.
@@ -33,7 +33,7 @@ Both continuous and binary numeric features are scaled.
 
 ### Preprocessing limitations
 
-The revised CSV values are not standardized. For example, BMI remains on its original scale. However, other transformations or missing-value replacements may already have happened upstream.
+In the revised CSV, age, BMI, and dialysis years have means near zero and standard deviations near one, consistent with prior standardization. Other transformations or missing-value replacements may also have happened upstream.
 
 The upstream `Healthcare1C.ipynb` still contains a cell that scales the full dataset, and the source metadata does not document the preprocessing history. The CSV values alone cannot prove that all earlier processing avoided data leakage.
 
