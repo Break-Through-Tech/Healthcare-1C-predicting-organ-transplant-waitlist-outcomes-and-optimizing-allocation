@@ -1,4 +1,4 @@
-# Optimized logistic regression baselines
+# Model training and evaluation
 
 ## Dataset and preprocessing
 
@@ -60,6 +60,12 @@ Good ranking scores do not necessarily mean a model detects adverse outcomes wel
 To choose a different cutoff, use validation predictions generated from training data only, then evaluate it on fresh held-out data. **Do not tune a cutoff using the test results reported here.**
 
 Including or excluding demographics does not, by itself, establish fairness. Both models remain research baselines.
+
+The [Baseline A Random Forest notebook](../notebooks/random_forest_training_Baseline_A.ipynb) runs a reproducible randomized search over tree count, depth, split/leaf sizes, feature sampling, bootstrap sample size, and class weighting. It selects parameters using stratified cross-validated average precision on the training split only; the fixed stratified 20% test split is evaluated once after refitting the winner. The notebook evaluates 8 candidates with 3-fold CV and 2 parallel fits, then writes the fitted estimator, complete CV results, and evaluation metadata to `models/random_forest_baseline_a_best.pkl`, `models/random_forest_baseline_a_cv_results.csv`, and `models/random_forest_baseline_a_metadata.json`. The saved estimator expects the processed Baseline A feature columns in the order recorded in the metadata.
+
+The [Baseline B Random Forest notebook](../notebooks/random_forest_training_Baseline_B.ipynb) runs the same randomized search and evaluation process while retaining all processed features, including demographics. In the 8-candidate, 3-fold search, it achieved 0.100801 CV average precision and 0.107480 held-out test average precision (ROC AUC 0.700067). At the default 0.5 threshold, adverse-class recall remains 0. Its artifacts are saved separately as `models/random_forest_baseline_b_best.pkl`, `models/random_forest_baseline_b_cv_results.csv`, and `models/random_forest_baseline_b_metadata.json`.
+
+[The logistic-regression feature-importance notebook](../notebooks/logistic_regression_feature_importance.ipynb) loads both saved baselines and displays separate signed standardized coefficients and top-10 SHAP importance plots, then compares their shared and model-specific features. Install `shap` in the notebook environment first if it is not already available. The explanations are model associations, not causal effects or evidence of fairness.
 
 Saving files locally does not upload them to GitHub. To share them, commit and push the notebooks and model artifacts through the normal Git workflow.
 
