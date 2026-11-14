@@ -105,7 +105,7 @@ These instructions describe the committed notebook workflow. A clean-environment
 
    The notebooks discover the repository root and validate processed data. Training writes fitted models, metadata, and cross-validation results to `models/`. Random Forest fitted pickle artifacts are not currently present in the main-branch file listing and must be produced by training before use.
 
-5. For calibration and threshold evaluation, open [model_calibration_threshold_analysis.ipynb](notebooks/model_calibration_threshold_analysis.ipynb). Its initial path currently reads `DATA_DIR = ROOT / "processed datasets"`; change that local setting to `ROOT / "processed_output"` before running against this repository's folder layout. Load the trusted logistic-regression artifacts, run all cells in order, and inspect the aggregate outputs in `outputs/issue_20/`.
+5. For calibration and threshold evaluation, open [model_calibration_threshold_analysis.ipynb](notebooks/model_calibration_threshold_analysis.ipynb). Its data directory is `ROOT / "processed_output"`, matching this repository's folder layout. Load the trusted logistic-regression artifacts, run all cells in order, and inspect the aggregate outputs in `outputs/issue_20/`.
 
 6. Review recall, precision, confusion matrices, average precision, calibration, and lift together. Compare the metadata's source hashes and split settings before comparing different artifact revisions. Pass processed features directly to the saved logistic-regression pipeline without applying another scaler.
 
