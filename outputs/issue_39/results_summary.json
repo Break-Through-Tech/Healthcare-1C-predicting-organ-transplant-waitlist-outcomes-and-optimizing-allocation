@@ -1,0 +1,74 @@
+{
+  "model": "random_forest_baseline_b",
+  "target": "adverse_365",
+  "calibration_method": "sigmoid",
+  "selection_split": "development validation only",
+  "evaluation_fit": "refitted optimized hyperparameters on development-only split",
+  "validation_fraction_of_training": 0.2,
+  "test_rows": 87978,
+  "test_adverse_events": 3517,
+  "false_negative_cost_weight": 10,
+  "false_positive_cost_weight": 1,
+  "selected_threshold": 0.065,
+  "validation_selected": {
+    "threshold": 0.065,
+    "tp": 611.0,
+    "fp": 4327.0,
+    "fn": 2203.0,
+    "tn": 63241.0,
+    "flagged": 4938.0,
+    "flagged_fraction": 0.07015998408684039,
+    "recall": 0.21712864250177683,
+    "precision": 0.12373430538679628,
+    "f1": 0.15763673890608876,
+    "weighted_cost": 26357.0,
+    "mean_weighted_cost": 0.3744849535392572
+  },
+  "test_default_vs_selected": [
+    {
+      "threshold": 0.065,
+      "tp": 792,
+      "fp": 5419,
+      "fn": 2725,
+      "tn": 79042,
+      "flagged": 6211,
+      "flagged_fraction": 0.07059719475323377,
+      "recall": 0.22519192493602502,
+      "precision": 0.1275156979552407,
+      "f1": 0.16282894736842105,
+      "weighted_cost": 32669.0,
+      "mean_weighted_cost": 0.3713314692309441
+    },
+    {
+      "threshold": 0.5,
+      "tp": 20,
+      "fp": 27,
+      "fn": 3497,
+      "tn": 84434,
+      "flagged": 47,
+      "flagged_fraction": 0.0005342244652072109,
+      "recall": 0.005686664771111743,
+      "precision": 0.425531914893617,
+      "f1": 0.01122334455667789,
+      "weighted_cost": 34997.0,
+      "mean_weighted_cost": 0.3977926299756757
+    }
+  ],
+  "test_raw_probability_metrics": {
+    "brier": 0.037271584126783795,
+    "log_loss": 0.15697312325268678,
+    "average_precision": 0.10722985704197244,
+    "mean_prediction": 0.03987980008597634,
+    "observed_prevalence": 0.03997590306667576
+  },
+  "test_evaluated_probability_metrics": {
+    "brier": 0.03738055585151588,
+    "log_loss": 0.1582372001496243,
+    "average_precision": 0.10777488174869562,
+    "mean_prediction": 0.03980561582214196,
+    "observed_prevalence": 0.03997590306667576
+  },
+  "test_top_decile_lift": 2.8887600336701227,
+  "test_top_decile_event_capture": 0.28888257037247655,
+  "notes": "Research-only hypothetical cost weights. Neither calibration nor thresholds are clinically validated. Upstream preprocessing and repeat-patient leakage remain unverified."
+}
