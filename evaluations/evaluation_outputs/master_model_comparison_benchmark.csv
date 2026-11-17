@@ -1,0 +1,7 @@
+Model,Predictors,ROC-AUC,PR-AUC,Brier Score,Recall (0.04),False Alarms (0.04),C-Index,Model Paradigm & Trade-off
+Logistic Regression Baseline A,30 (Clinical Only),0.6779,0.0809,0.0377,64.6%,"32,849",N/A,"Linear, fully interpretable; missed non-linear risk interactions."
+Logistic Regression Baseline B,51 (Clinical + Demographics),0.6834,0.0855,0.0377,65.7%,"32,744",N/A,Linear; demographics add only +0.005 AUC; underfits complex synergies.
+Random Forest Baseline A,30 (Clinical Only),0.6910,0.1005,0.0374,66.3%,"33,016",N/A,Non-linear ensemble; captures medical interactions without sensitive proxies.
+Random Forest Baseline B (WINNER),51 (Clinical + Demographics),0.7001,0.1070,0.0373,67.4%,"32,418",N/A,"Top classifier: breaks 0.70 AUC, highest PR-AUC, fewest false alarms."
+Survival Analysis (Cox Proportional Hazards),Key Clinical + Blood Type,N/A (Time-to-Event),N/A (Time-to-Event),N/A,N/A,N/A,0.6731,Crucial complementary model: handles right-censoring & dynamic wait time.
+MediMate Official Challenge Target,All Candidates,>= 0.7800,>= 0.6500,<= 0.1800,Maximize Sensitivity,Manage Alert Fatigue,>= 0.7200,Official project benchmark targets for clinical deployment feasibility.
