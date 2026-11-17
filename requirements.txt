@@ -1,3 +1,4 @@
 -r models/requirements.txt
 shap==0.54.1
 jupyterlab==4.6.6
+lifelines>=0.29.0
