@@ -5,7 +5,7 @@
   "source_sha256": {
     "X_processed.csv": "229046cea50afad306e9ca02617493a767dda5c023e2d613ac7c40cca0f4d349",
     "y_processed.csv": "ac7d1ef2eb8f73b739a693f31e6256881a0280248aa42f89556c6969ec6aa84a",
-    "dataset_metadata.json": "0c12b94ece345a49376704e988ff6ff4fbfc03b6f6864eeee6edaf695eee7c0c"
+    "dataset_metadata.json": "11e274ff89f77c67e9a357edebc36313e3dea172d4a6941315d15cf6f3a2cf6c"
   },
   "feature_columns": [
     "INIT_AGE",
@@ -98,8 +98,8 @@
   "training_rows": 351909,
   "test_rows": 87978,
   "random_state": 42,
-  "python_version": "3.11.5",
+  "python_version": "3.13.7",
   "sklearn_version": "1.9.1",
-  "numpy_version": "2.4.6",
-  "pandas_version": "3.1.1"
+  "numpy_version": "2.5.4",
+  "pandas_version": "3.0.6"
 }
